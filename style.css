@@ -1,82 +1,86 @@
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #020617;
-  color: white;
+/* ✨ NAV LINK HOVER UNDERLINE */
+nav a {
+  position: relative;
 }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.avatar {
-  width: 120px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-h1 {
-  color: #38bdf8;
-}
-
-.buttons a {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
   background: #38bdf8;
-  color: black;
-  text-decoration: none;
-  border-radius: 20px;
-}
-
-/* SECTIONS */
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-h2 {
-  color: #38bdf8;
-}
-
-/* PROJECT GRID */
-.project-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* GLASS CARD */
-.project-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 15px;
-  width: 250px;
+  left: 0;
+  bottom: -5px;
   transition: 0.3s;
 }
 
-.project-card:hover {
-  transform: translateY(-10px);
+nav a:hover::after {
+  width: 100%;
 }
 
-/* ANIMATION */
-.fade {
-  animation: fadeIn 1s ease-in;
+/* 🔥 BUTTON GLOW PULSE */
+.buttons a {
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1;}
+.buttons a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  top: 0;
+  left: -100%;
+  transition: 0.5s;
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .project-grid {
-    flex-direction: column;
-    align-items: center;
+.buttons a:hover::before {
+  left: 100%;
+}
+
+/* ✨ TEXT FADE ANIMATION */
+.left {
+  animation: fadeUp 1s ease-in-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔥 IMAGE GLOW */
+.avatar {
+  box-shadow: 0 0 50px rgba(56,189,248,0.4);
+}
+
+/* 🌌 EXTRA LIGHT GLOW (MOVE EFFECT) */
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(14,165,233,0.3), transparent 70%);
+  top: 60%;
+  left: 20%;
+  filter: blur(120px);
+  z-index: -1;
+}
+
+/* 🎯 SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+/* PARTICLES CANVAS */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }

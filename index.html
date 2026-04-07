@@ -8,44 +8,87 @@
 
 <body>
 
+  <!-- 🔥 GRID BACKGROUND -->
+  <div class="bg"></div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h2>[ Joy ]</h2>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
   <section class="hero">
-    <img src="https://i.ibb.co/4pDNDk1/avatar.png" class="avatar">
-    <h1>Hi, I'm Joy 👋</h1>
-    <p>Flutter Developer</p>
 
-    <div class="buttons">
-      <a href="https://github.com/Sifat221" target="_blank">GitHub</a>
-      <a href="#">Download CV</a>
-    </div>
-  </section>
+    <div class="left">
+      <p class="tag">$ flutter</p>
 
-  <section class="about fade">
-    <h2>About Me</h2>
-    <p>I build modern mobile apps using Flutter and love solving real-world problems.</p>
-  </section>
+      <h1 class="big-text">JOY</h1>
 
-  <section class="projects fade">
-    <h2>Projects</h2>
+      <!-- 🔥 GRADIENT TEXT -->
+      <h3 class="gradient-text">Flutter Developer</h3>
 
-    <div class="project-grid">
+      <p class="desc">
+        I build modern mobile apps with beautiful UI & performance.
+      </p>
 
-      <div class="project-card">
-        <h3>Doctor App</h3>
-        <p>Flutter doctor booking app</p>
+      <div class="buttons">
+        <a href="#">View My Work</a>
+        <a href="#">Contact Me</a>
       </div>
-
-      <div class="project-card">
-        <h3>Weather App</h3>
-        <p>Real-time weather app</p>
-      </div>
-
     </div>
-  </section>
 
-  <section class="contact fade">
-    <h2>Contact</h2>
-    <p>Email: joy@email.com</p>
+    <div class="right">
+      <img src="https://i.ibb.co/4pDNDk1/avatar.png" class="avatar">
+    </div>
+
   </section>
+  <canvas id="particles"></canvas>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2,
+    dx: (Math.random() - 0.5),
+    dy: (Math.random() - 0.5)
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#38bdf8";
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
 
 </body>
 </html>

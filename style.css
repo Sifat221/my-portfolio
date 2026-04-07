@@ -1,49 +1,82 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
+  font-family: Arial;
+  background: #020617;
   color: white;
 }
 
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.avatar {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #38bdf8;
+}
+
+.buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background: #38bdf8;
+  color: black;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+/* SECTIONS */
 section {
   padding: 60px 20px;
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 48px;
-  color: #38bdf8;
-}
-
-.hero p {
-  font-size: 20px;
-  color: #94a3b8;
-}
-
 h2 {
   color: #38bdf8;
-  margin-bottom: 20px;
 }
 
-.projects {
+/* PROJECT GRID */
+.project-grid {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 20px;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
+/* GLASS CARD */
 .project-card {
-  background: #1e293b;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 15px;
-  width: 300px;
+  width: 250px;
   transition: 0.3s;
 }
 
 .project-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
 }
 
-.contact p {
-  color: #94a3b8;
+/* ANIMATION */
+.fade {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1;}
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }

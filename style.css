@@ -1,10 +1,49 @@
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background: #0f172a;
   color: white;
-  text-align: center;
-  font-family: Arial;
 }
 
-h1 {
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
   color: #38bdf8;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #94a3b8;
+}
+
+h2 {
+  color: #38bdf8;
+  margin-bottom: 20px;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.project-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.contact p {
+  color: #94a3b8;
 }

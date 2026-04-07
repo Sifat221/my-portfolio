@@ -1,94 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Joy Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="photos/1.jpg">
+    <title>Taohyd - Product Designer & Frontend Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-
-  <!-- 🔥 GRID BACKGROUND -->
-  <div class="bg"></div>
-
-  <!-- NAVBAR -->
-  <nav>
-    <h2>[ Joy ]</h2>
-    <div>
-      <a href="#">Home</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-
-    <div class="left">
-      <p class="tag">$ flutter</p>
-
-      <h1 class="big-text">JOY</h1>
-
-      <!-- 🔥 GRADIENT TEXT -->
-      <h3 class="gradient-text">Flutter Developer</h3>
-
-      <p class="desc">
-        I build modern mobile apps with beautiful UI & performance.
-      </p>
-
-      <div class="buttons">
-        <a href="#">View My Work</a>
-        <a href="#">Contact Me</a>
-      </div>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
     </div>
 
-    <div class="right">
-      <img src="https://i.ibb.co/4pDNDk1/avatar.png" class="avatar">
-    </div>
+    <!-- Particle System -->
+    <canvas id="particleCanvas"></canvas>
 
-  </section>
-  <canvas id="particles"></canvas>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <span class="logo-bracket">[</span>
+                    Taohyd
+                    <span class="logo-bracket">]</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">
+                    <span class="nav-number">01.</span>Home
+                </a>
+                <a href="#projects" class="nav-link">
+                    <span class="nav-number">02.</span>Projects
+                </a>
+                <a href="#skills" class="nav-link">
+                    <span class="nav-number">03.</span>Skills
+                </a>
+                <a href="#contact" class="nav-link">
+                    <span class="nav-number">04.</span>Contact
+                </a>
+                <button type="button" class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    <div class="toggle-track">
+                        <div class="toggle-thumb"></div>
+                    </div>
+                </button>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<script>
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <span class="terminal-prompt">$</span>
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="glitch" data-text="Taohyd">Fardaus Taohyd</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        <span class="highlight-gradient">Product Designer</span> & 
+                        <span class="highlight-gradient">Frontend Developer</span>
+                    </h2>
+                    <p class="hero-description">
+Pixel-perfect UI → production-ready code. <br>
+Technical Executive at BitByte Technology Ltd.                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <span class="btn-text">View My Work</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span class="btn-text">Get In Touch</span>
+                            <div class="btn-border"></div>
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/FardausTaohyd" target="_blank" rel="noopener" title="GitHub" class="social-link">
+                            <i class="fab fa-github"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="https://www.behance.net/fardaustaohyd" target="_blank" rel="noopener" title="Behance" class="social-link">
+                       <i class="fab fa-behance"></i>
+                       <div class="social-glow"></div>
+                       </a>
+                        <a href="https://www.linkedin.com/in/fardaus-taohyd-582736370/" target="_blank" rel="noopener" title="LinkedIn" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-ring-2"></div>
+                        <img src="photos/1.jpg" alt="Taohyd Profile" />
+                        <div class=""></div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="floating-shape shape-1"></div>
+                        <div class="floating-shape shape-2"></div>
+                        <div class="floating-shape shape-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02.</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    Projects that blend thoughtful design and functional code — covering UX, AI-infused interfaces and responsive frontend websites.
+                </p>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="filter-text">All</span>
+                    <div class="filter-glow"></div>
+                </button>
+                <button class="filter-btn" data-filter="ux">
+                    <span class="filter-text">Design</span>
+                    <div class="filter-glow"></div>
+                </button>
+                <!-- <button class="filter-btn" data-filter="ai">
+                    <span class="filter-text"></span>
+                    <div class="filter-glow"></div>
+                </button> -->
+                <button class="filter-btn" data-filter="3d">
+                    <span class="filter-text">Development</span>
+                    <div class="filter-glow"></div>
+                </button>
+            </div>
 
-let particles = [];
+            <div class="projects-grid">
+                <div class="project-card" data-category="ux">
+                    <div class="project-image">
+                        <img src="photos-2/PawHouse.png" alt="E-commerce Redesign" />
+                        <div class="project-overlay">
+                            <div class="project-overlay">
+  <div class="button-group">
+    <!-- <a href="case-study.html?project=ecommerce" class="btn btn-primary">
+      <span>Case Study</span>
+      <div class="btn-glow"></div>
+    </a> -->
+    <a href="https://www.behance.net/gallery/224039477/PawHouse-Pet-Care-App-UIUX" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span> Case Study</span>
+      <div class="btn-glow"></div>
+    </a>
+  </div>
+</div>
+                            
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">UX Design</div>
+                        <h3 class="project-title">PawHouse – UX Design</h3>
+                        <p class="project-description">Pet Care Super App for Modern Muslim Pet Owners</p>
+                        <div class="project-tags">
+                            <span class="tag">UX Research</span>
+                            <span class="tag">Prototyping</span>
+                            <span class="tag">Mobile-First Prototyping</span>
+                        </div>
+                    </div>
+                </div>
 
-for (let i = 0; i < 80; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2,
-    dx: (Math.random() - 0.5),
-    dy: (Math.random() - 0.5)
-  });
-}
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <img src="photos-2/Weather Analysis.png" alt="AI Content Generator" />
+                        <div class="project-overlay">
+                            <div class="button-group">
+    <!-- <a href="case-study.html?project=ecommerce" class="btn btn-primary">
+      <span>Case Study</span>
+      <div class="btn-glow"></div>
+    </a> -->
+    <a href="https://colab.research.google.com/drive/1mbQ00a7tihLfggyW1McEBsXziZeOPqS8?usp=drive_link" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span>View Analysis</span>
+      <div class="btn-glow"></div>
+    </a>
+  </div>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Data Analysis</div>
+                        <h3 class="project-title">Weather Data Analysis</h3>
+                        <p class="project-description">Analyzed global weather trends using Python in Google Colab. Visualized temperature and rainfall patterns across regions using Pandas, Matplotlib, and Seaborn to uncover seasonal and climate insights.</p>
+                        <div class="project-tags">
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">Seaborn</span>
+                        </div>
+                    </div>
+                </div>
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+                <div class="project-card" data-category="3d">
+                    <div class="project-image">
+                        <img src="photos-2/Foodish.png" alt="3D Product Configurator" />
+                        <div class="project-overlay">
+                            <div class="button-group">
+    <!-- <a href="case-study.html?project=ecommerce" class="btn btn-primary">
+      <span>Case Study</span>
+      <div class="btn-glow"></div>
+    </a> -->
+    <a href="https://foodishbd.com/" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span>Live Website</span>
+      <div class="btn-glow"></div>
+    </a>
+  </div>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Web Development</div>
+                        <h3 class="project-title">Foodish – Restaurant Website</h3>
+                        <p class="project-description">Responsive WordPress website for a modern restaurant, featuring online menu browsing, reservation system, and contact integration.</p>
+                        <div class="project-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Elementor</span>
+                            <span class="tag">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
 
-  particles.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = "#38bdf8";
-    ctx.fill();
+                <div class="project-card" data-category="ux">
+                    <div class="project-image">
+                        <img src="photos-2/NID.png" alt="Mobile Banking App" />
+                        <div class="project-overlay">
+                           <div class="button-group">
+    <a href="https://fardaustaohyd.github.io/nid-website-redesign/" class="btn btn-primary">
+      <span>Live Demo</span>
+      <div class="btn-glow"></div>
+    </a>
+    <!-- <a href="https://your-live-demo-link.com" class="btn btn-secondary" target="_blank" rel="noopener">
+      <span>Live Demo</span>
+      <div class="btn-glow"></div>
+    </a> -->
+  </div>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Web Redesign</div>
+                        <h3 class="project-title">Bangladesh NID Website</h3>
+                        <p class="project-description">Redesigned and developed the official NID portal of Bangladesh with improved user flow, modern UI, and optimized performance for better citizen accessibility.</p>
+                        <div class="project-tags">
+                            <span class="tag">UX Redesign</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Government Services</span>
+                        </div>
+                    </div>
+                </div>
 
-    p.x += p.dx;
-    p.y += p.dy;
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <img src="photos-2/METALCARD.png" alt="Smart Analytics Dashboard" />
+                        <div class="project-overlay">
+                            <a href="https://fardaustaohyd.github.io/goldcard-project/" class="btn btn-primary">
+                                <span class="btn-text">Live Demo</span>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Fintech / Islamic Finance</div>
+    <h3 class="project-title">MetalCard – Shariah-Compliant Digital Gold & Silver Card</h3>
+   <p class="project-description">
+    A responsive fintech site showing real-time gold and silver balances with a Shariah-compliant virtual debit card simulation.
+</p>
 
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  });
+    <div class="project-tags">
+        <span class="tag">Fintech</span>
+        <span class="tag">Shariah-Compliant</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
 
-  requestAnimationFrame(draw);
-}
+                <div class="project-card" data-category="3d">
+                    <div class="project-image">
+                        <img src="photos-2/BusBD.png" alt="Virtual Showroom" />
+                        <div class="project-overlay">
+                            <a href="https://fardaustaohyd.github.io/BusBD/" class="btn btn-primary">
+                                <span class="btn-text">Live Demo</span>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Transportation</div>
+<h3 class="project-title">BusBD</h3>
+<p class="project-description">Real-time local bus tracking and seat availability system to modernize public transport in Bangladesh.</p>
+<div class="project-tags">
+  <span class="tag">Web App</span>
+  <span class="tag">JavaScript</span>
+  <span class="tag">UX Design</span>
+  <span class="tag">Real-Time Data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-draw();
-</script>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03.</div>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-description">
+                    A comprehensive toolkit for creating exceptional digital experiences.
+                </p>
+            </div>
 
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-palette"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="skill-title">Design</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Figma</span>
+                        <span class="skill-item">Adobe XD</span>
+                        <span class="skill-item">Framer</span>
+                        <span class="skill-item">Canva</span>
+                        <span class="skill-item">Notion</span>
+                    </div>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="skill-title">Frontend</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">HTML</span>
+                        <span class="skill-item">CSS</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">React.js</span>
+                        <span class="skill-item">Tailwind CSS</span>
+                        <span class="skill-item">SASS</span>
+                    </div>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-cube"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="skill-title">3D & Animation</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Three.js</span>
+                        <span class="skill-item">Spline</span>
+                    </div>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="skill-title">AI & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">OpenAI API</span>
+                        <span class="skill-item">TensorFlow.js</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">Colab</span>
+                    </div>
+                    <div class="category-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">04.</div>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-description">
+                    Got a project or a crazy idea? I’m all ears. Let’s turn your vision into a beautifully crafted digital experience — with smart design, clean code and a little magic.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>fardaustaohyd31@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+880 1790059061</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form 
+  class="contact-form" 
+  id="contactForm" 
+  action="https://formspree.io/f/xovwwrgw" 
+  method="POST"
+>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <div class="input-glow"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    <div class="input-glow"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" required>
+    <div class="input-glow"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+    <div class="input-glow"></div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">
+    <span class="btn-text">Send Message</span>
+    <div class="btn-glow"></div>
+  </button>
+
+  <div class="form-glow"></div>
+</form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Taohyd. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/FardausTaohyd" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.behance.net/fardaustaohyd" target="_blank" rel="noopener">Behance</a>
+                    <a href="mailto:fardaustaohyd31@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <audio id="button-sound" src="photos/735803__biornade__console-clicking-sound.wav" preload="auto"></audio>
 </body>
+
 </html>

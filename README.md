@@ -1,6 +1,6 @@
 Sifat Portfolio
 Welcome to my personal portfolio website!
-I'm Sifat Khan – a Flutter Developer & Frontend Developer passionate about crafting meaningful user experiences through design, code, and innovation.
+I'm Sifat Khan – a Flutter Developer & AI Developer passionate about crafting meaningful user experiences through design, code, and innovation.
 
 🌟 About
 This portfolio showcases a selection of my UX case studies, design thinking process, 3D/AI experiments, and frontend development projects.
